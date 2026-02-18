@@ -1,0 +1,112 @@
+{
+  "Modules": [
+    {
+      "Id": "core_round_01",
+      "Category": 0,
+      "StyleTags": ["rounded"],
+      "PrefabRef": "LegoPrefabs/CoreRound01",
+      "Sockets": [
+        { "SocketId": "core_limb_1", "SocketType": "core_limb_port", "LocalPosition": { "x": -0.35, "y": 0.0, "z": 0.0 }, "LocalEulerAngles": { "x": 0.0, "y": 0.0, "z": 0.0 } },
+        { "SocketId": "core_limb_2", "SocketType": "core_limb_port", "LocalPosition": { "x": 0.35, "y": 0.0, "z": 0.0 }, "LocalEulerAngles": { "x": 0.0, "y": 180.0, "z": 0.0 } },
+        { "SocketId": "core_accessory_1", "SocketType": "core_accessory_port", "LocalPosition": { "x": 0.0, "y": 0.3, "z": 0.0 }, "LocalEulerAngles": { "x": 0.0, "y": 0.0, "z": 0.0 } },
+        { "SocketId": "core_accessory_2", "SocketType": "core_accessory_port", "LocalPosition": { "x": 0.0, "y": 0.55, "z": 0.0 }, "LocalEulerAngles": { "x": 0.0, "y": 0.0, "z": 0.0 } }
+      ]
+    },
+    {
+      "Id": "core_box_01",
+      "Category": 0,
+      "StyleTags": ["bulky"],
+      "PrefabRef": "LegoPrefabs/CoreBox01",
+      "Sockets": [
+        { "SocketId": "core_limb_1", "SocketType": "core_limb_port", "LocalPosition": { "x": -0.42, "y": 0.0, "z": 0.0 }, "LocalEulerAngles": { "x": 0.0, "y": 0.0, "z": 0.0 } },
+        { "SocketId": "core_limb_2", "SocketType": "core_limb_port", "LocalPosition": { "x": 0.42, "y": 0.0, "z": 0.0 }, "LocalEulerAngles": { "x": 0.0, "y": 180.0, "z": 0.0 } },
+        { "SocketId": "core_accessory_1", "SocketType": "core_accessory_port", "LocalPosition": { "x": 0.0, "y": 0.35, "z": 0.0 }, "LocalEulerAngles": { "x": 0.0, "y": 0.0, "z": 0.0 } },
+        { "SocketId": "core_accessory_2", "SocketType": "core_accessory_port", "LocalPosition": { "x": 0.0, "y": 0.62, "z": 0.0 }, "LocalEulerAngles": { "x": 0.0, "y": 0.0, "z": 0.0 } }
+      ]
+    },
+    {
+      "Id": "core_tall_01",
+      "Category": 0,
+      "StyleTags": ["tall"],
+      "PrefabRef": "LegoPrefabs/CoreTall01",
+      "Sockets": [
+        { "SocketId": "core_limb_1", "SocketType": "core_limb_port", "LocalPosition": { "x": -0.30, "y": 0.12, "z": 0.0 }, "LocalEulerAngles": { "x": 0.0, "y": 0.0, "z": 0.0 } },
+        { "SocketId": "core_limb_2", "SocketType": "core_limb_port", "LocalPosition": { "x": 0.30, "y": 0.12, "z": 0.0 }, "LocalEulerAngles": { "x": 0.0, "y": 180.0, "z": 0.0 } },
+        { "SocketId": "core_accessory_1", "SocketType": "core_accessory_port", "LocalPosition": { "x": 0.0, "y": 0.45, "z": 0.0 }, "LocalEulerAngles": { "x": 0.0, "y": 0.0, "z": 0.0 } },
+        { "SocketId": "core_accessory_2", "SocketType": "core_accessory_port", "LocalPosition": { "x": 0.0, "y": 0.78, "z": 0.0 }, "LocalEulerAngles": { "x": 0.0, "y": 0.0, "z": 0.0 } }
+      ]
+    },
+    {
+      "Id": "limb_round_01",
+      "Category": 1,
+      "StyleTags": ["rounded"],
+      "PrefabRef": "LegoPrefabs/LimbRound01",
+      "Sockets": [
+        { "SocketId": "limb_core", "SocketType": "limb_core_socket", "LocalPosition": { "x": 0.0, "y": 0.0, "z": 0.0 }, "LocalEulerAngles": { "x": 0.0, "y": 0.0, "z": 0.0 } }
+      ]
+    },
+    {
+      "Id": "limb_block_01",
+      "Category": 1,
+      "StyleTags": ["bulky"],
+      "PrefabRef": "LegoPrefabs/LimbBlock01",
+      "Sockets": [
+        { "SocketId": "limb_core", "SocketType": "limb_core_socket", "LocalPosition": { "x": 0.0, "y": 0.0, "z": 0.0 }, "LocalEulerAngles": { "x": 0.0, "y": 0.0, "z": 0.0 } }
+      ]
+    },
+    {
+      "Id": "limb_point_01",
+      "Category": 1,
+      "StyleTags": ["pointed"],
+      "PrefabRef": "LegoPrefabs/LimbPoint01",
+      "Sockets": [
+        { "SocketId": "limb_core", "SocketType": "limb_core_socket", "LocalPosition": { "x": 0.0, "y": 0.0, "z": 0.0 }, "LocalEulerAngles": { "x": 0.0, "y": 0.0, "z": 0.0 } }
+      ]
+    },
+    {
+      "Id": "limb_tall_01",
+      "Category": 1,
+      "StyleTags": ["tall"],
+      "PrefabRef": "LegoPrefabs/LimbTall01",
+      "Sockets": [
+        { "SocketId": "limb_core", "SocketType": "limb_core_socket", "LocalPosition": { "x": 0.0, "y": 0.0, "z": 0.0 }, "LocalEulerAngles": { "x": 0.0, "y": 0.0, "z": 0.0 } }
+      ]
+    },
+    {
+      "Id": "acc_antenna_01",
+      "Category": 2,
+      "StyleTags": ["swirl"],
+      "PrefabRef": "LegoPrefabs/AccAntenna01",
+      "Sockets": [
+        { "SocketId": "acc_core", "SocketType": "accessory_core_socket", "LocalPosition": { "x": 0.0, "y": 0.0, "z": 0.0 }, "LocalEulerAngles": { "x": 0.0, "y": 0.0, "z": 0.0 } }
+      ]
+    },
+    {
+      "Id": "acc_topper_01",
+      "Category": 2,
+      "StyleTags": ["rounded"],
+      "PrefabRef": "LegoPrefabs/AccTopper01",
+      "Sockets": [
+        { "SocketId": "acc_core", "SocketType": "accessory_core_socket", "LocalPosition": { "x": 0.0, "y": 0.0, "z": 0.0 }, "LocalEulerAngles": { "x": 0.0, "y": 0.0, "z": 0.0 } }
+      ]
+    },
+    {
+      "Id": "acc_fin_01",
+      "Category": 2,
+      "StyleTags": ["pointed"],
+      "PrefabRef": "LegoPrefabs/AccFin01",
+      "Sockets": [
+        { "SocketId": "acc_core", "SocketType": "accessory_core_socket", "LocalPosition": { "x": 0.0, "y": 0.0, "z": 0.0 }, "LocalEulerAngles": { "x": 0.0, "y": 0.0, "z": 0.0 } }
+      ]
+    },
+    {
+      "Id": "acc_light_01",
+      "Category": 2,
+      "StyleTags": ["bulky"],
+      "PrefabRef": "LegoPrefabs/AccLight01",
+      "Sockets": [
+        { "SocketId": "acc_core", "SocketType": "accessory_core_socket", "LocalPosition": { "x": 0.0, "y": 0.0, "z": 0.0 }, "LocalEulerAngles": { "x": 0.0, "y": 0.0, "z": 0.0 } }
+      ]
+    }
+  ]
+}

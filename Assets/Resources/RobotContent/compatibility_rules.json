@@ -1,0 +1,6 @@
+{
+  "Rules": [
+    { "SocketTypeA": "core_limb_port", "SocketTypeB": "limb_core_socket", "Allowed": true },
+    { "SocketTypeA": "core_accessory_port", "SocketTypeB": "accessory_core_socket", "Allowed": true }
+  ]
+}
