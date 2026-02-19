@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using RoboterLego.Domain;
 using UnityEngine;
+using UnityInput = UnityEngine.Input;
 
 namespace RoboterLego.Input
 {
@@ -15,18 +16,21 @@ namespace RoboterLego.Input
         private float outputTimer;
         private Vector2 smoothedTilt;
         private Vector2 latestRawTilt;
+        private Vector3 lastAcceleration;
         private ScreenOrientation lastOrientation;
 
         public bool HasGyroscope { get; private set; }
+        public float CurrentShakeEnergy { get; private set; }
 
         private void Awake()
         {
             HasGyroscope = SystemInfo.supportsGyroscope;
             if (HasGyroscope)
             {
-                Input.gyro.enabled = true;
+                UnityInput.gyro.enabled = true;
             }
 
+            lastAcceleration = UnityInput.acceleration;
             lastOrientation = Screen.orientation;
         }
 
@@ -76,9 +80,11 @@ namespace RoboterLego.Input
 
         private void SampleFrame()
         {
-            Vector3 gyro = HasGyroscope ? Input.gyro.rotationRateUnbiased : Vector3.zero;
-            Vector3 accel = Input.acceleration;
+            Vector3 gyro = HasGyroscope ? UnityInput.gyro.rotationRateUnbiased : Vector3.zero;
+            Vector3 accel = UnityInput.acceleration;
             frames.Add(new MotionFrame(gyro, accel, Time.time));
+            CurrentShakeEnergy = Mathf.Clamp01((accel - lastAcceleration).magnitude / 2f);
+            lastAcceleration = accel;
 
             var rawTilt = new Vector2(accel.x, accel.y);
             latestRawTilt = NormalizeTiltByOrientation(rawTilt, Screen.orientation);

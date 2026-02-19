@@ -2,9 +2,7 @@
   "name": "RoboterLego.EditModeTests",
   "rootNamespace": "RoboterLego.Tests",
   "references": [
-    "RoboterLego.Runtime",
-    "UnityEngine.TestRunner",
-    "UnityEditor.TestRunner"
+    "RoboterLego.Runtime"
   ],
   "includePlatforms": [
     "Editor"

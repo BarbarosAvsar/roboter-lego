@@ -1,0 +1,21 @@
+{
+  "name": "RoboterLego.Editor",
+  "rootNamespace": "RoboterLego.Editor",
+  "references": [
+    "RoboterLego.Runtime",
+    "Unity.Addressables",
+    "Unity.ResourceManager",
+    "Unity.ugui"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

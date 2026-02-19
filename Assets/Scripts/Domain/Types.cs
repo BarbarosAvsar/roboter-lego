@@ -46,6 +46,25 @@ namespace RoboterLego.Domain
         Accessory
     }
 
+    public enum RobotPartSlot
+    {
+        Core,
+        LeftArm,
+        RightArm,
+        TopAccessory,
+        Face,
+        Ears
+    }
+
+    public enum EnvironmentTheme
+    {
+        RobotFactory,
+        MoonStation,
+        NeonLab,
+        DesertScrapyard,
+        ArcticHangar
+    }
+
     [Serializable]
     public struct TouchEvent
     {
@@ -143,5 +162,78 @@ namespace RoboterLego.Domain
         public List<string> LimbModuleIds = new List<string>();
         public List<string> AccessoryModuleIds = new List<string>();
         public BehaviorProfile BehaviorProfile = new BehaviorProfile();
+    }
+
+    [Serializable]
+    public sealed class RobotCustomizationState
+    {
+        public RobotPartSlot SelectedSlot = RobotPartSlot.LeftArm;
+        public int CoreVariantIndex;
+        public int LeftArmVariantIndex;
+        public int RightArmVariantIndex;
+        public int TopAccessoryVariantIndex;
+        public int FaceVariantIndex;
+        public int EarsVariantIndex;
+        public int ColorPaletteIndex;
+        public int EnvironmentThemeIndex;
+
+        public int GetSlotVariantIndex(RobotPartSlot slot)
+        {
+            switch (slot)
+            {
+                case RobotPartSlot.Core:
+                    return CoreVariantIndex;
+                case RobotPartSlot.LeftArm:
+                    return LeftArmVariantIndex;
+                case RobotPartSlot.RightArm:
+                    return RightArmVariantIndex;
+                case RobotPartSlot.TopAccessory:
+                    return TopAccessoryVariantIndex;
+                case RobotPartSlot.Face:
+                    return FaceVariantIndex;
+                case RobotPartSlot.Ears:
+                    return EarsVariantIndex;
+                default:
+                    return 0;
+            }
+        }
+
+        public void SetSlotVariantIndex(RobotPartSlot slot, int value)
+        {
+            switch (slot)
+            {
+                case RobotPartSlot.Core:
+                    CoreVariantIndex = value;
+                    break;
+                case RobotPartSlot.LeftArm:
+                    LeftArmVariantIndex = value;
+                    break;
+                case RobotPartSlot.RightArm:
+                    RightArmVariantIndex = value;
+                    break;
+                case RobotPartSlot.TopAccessory:
+                    TopAccessoryVariantIndex = value;
+                    break;
+                case RobotPartSlot.Face:
+                    FaceVariantIndex = value;
+                    break;
+                case RobotPartSlot.Ears:
+                    EarsVariantIndex = value;
+                    break;
+            }
+        }
+
+        public void Reset()
+        {
+            SelectedSlot = RobotPartSlot.LeftArm;
+            CoreVariantIndex = 0;
+            LeftArmVariantIndex = 0;
+            RightArmVariantIndex = 0;
+            TopAccessoryVariantIndex = 0;
+            FaceVariantIndex = 0;
+            EarsVariantIndex = 0;
+            ColorPaletteIndex = 0;
+            EnvironmentThemeIndex = 0;
+        }
     }
 }

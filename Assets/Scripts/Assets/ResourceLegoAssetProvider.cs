@@ -15,10 +15,8 @@ namespace RoboterLego.Assets
     public sealed class ResourceLegoAssetProvider : MonoBehaviour, ILegoAssetProvider
     {
         [SerializeField] private List<LegoPrefabEntry> explicitMappings = new List<LegoPrefabEntry>();
-        [SerializeField] private Material placeholderMaterial;
 
         private readonly Dictionary<string, GameObject> cache = new Dictionary<string, GameObject>(StringComparer.OrdinalIgnoreCase);
-        private GameObject placeholderPrefab;
 
         private void Awake()
         {
@@ -34,11 +32,11 @@ namespace RoboterLego.Assets
             }
         }
 
-        public GameObject LoadPrefab(string prefabRef)
+        public GameObject LoadPrefab(string prefabRef, ModuleSpec moduleSpec = null)
         {
             if (string.IsNullOrWhiteSpace(prefabRef))
             {
-                return GetPlaceholder();
+                return null;
             }
 
             if (cache.TryGetValue(prefabRef, out var prefab))
@@ -52,40 +50,7 @@ namespace RoboterLego.Assets
                 cache[prefabRef] = resourcePrefab;
                 return resourcePrefab;
             }
-
-            Debug.LogWarning($"Prefab '{prefabRef}' not found in mappings/resources. Using placeholder.");
-            return GetPlaceholder();
-        }
-
-        private GameObject GetPlaceholder()
-        {
-            if (placeholderPrefab != null)
-            {
-                return placeholderPrefab;
-            }
-
-            placeholderPrefab = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            placeholderPrefab.name = "LegoPlaceholderPrefab";
-            placeholderPrefab.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
-
-            var collider = placeholderPrefab.GetComponent<Collider>();
-            if (collider != null)
-            {
-                collider.enabled = false;
-            }
-
-            if (placeholderMaterial != null)
-            {
-                var renderer = placeholderPrefab.GetComponent<Renderer>();
-                if (renderer != null)
-                {
-                    renderer.sharedMaterial = placeholderMaterial;
-                }
-            }
-
-            placeholderPrefab.SetActive(false);
-            DontDestroyOnLoad(placeholderPrefab);
-            return placeholderPrefab;
+            return null;
         }
     }
 }

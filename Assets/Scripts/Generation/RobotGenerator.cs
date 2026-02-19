@@ -12,9 +12,20 @@ namespace RoboterLego.Generation
         private ModuleCatalogIndex moduleCatalog;
         private CompatibilityGraph compatibilityGraph;
         private RobotBlueprintValidator blueprintValidator;
+        private bool initialized;
 
         private void Awake()
         {
+            InitializeIfNeeded();
+        }
+
+        private void InitializeIfNeeded()
+        {
+            if (initialized)
+            {
+                return;
+            }
+
             if (contentLoader == null)
             {
                 contentLoader = GetComponent<RobotContentLoader>();
@@ -31,6 +42,7 @@ namespace RoboterLego.Generation
             moduleCatalog = new ModuleCatalogIndex(modules.Modules);
             compatibilityGraph = new CompatibilityGraph(rules.Rules);
             blueprintValidator = new RobotBlueprintValidator(moduleCatalog, compatibilityGraph);
+            initialized = true;
         }
 
         public GenerationSeed CreateSeed(InputFeatures features)
@@ -327,7 +339,7 @@ namespace RoboterLego.Generation
                 return;
             }
 
-            Awake();
+            InitializeIfNeeded();
         }
     }
 }

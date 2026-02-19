@@ -30,11 +30,20 @@ namespace RoboterLego.Domain
         void PlayCreateCue();
         void PlayGenerateCue();
         void PlayPlayCue();
+        void PlayBuildSequence(float intensity);
+        void SetMovementLoop(bool isMoving, float speedNormalized);
+        void PlayDanceMusic(string danceStyle, float energy);
+        void StopDanceMusic();
     }
 
     public interface ILegoAssetProvider
     {
-        GameObject LoadPrefab(string prefabRef);
+        GameObject LoadPrefab(string prefabRef, ModuleSpec moduleSpec = null);
+    }
+
+    public interface ILegoAssetProviderChain : ILegoAssetProvider
+    {
+        IReadOnlyList<ILegoAssetProvider> Providers { get; }
     }
 
     public interface IShapeRecognizer

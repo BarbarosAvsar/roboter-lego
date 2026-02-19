@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using RoboterLego.Domain;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityInput = UnityEngine.Input;
 
 namespace RoboterLego.Input
 {
@@ -18,9 +20,9 @@ namespace RoboterLego.Input
 
         private void Update()
         {
-            if (Input.touchCount > 0)
+            if (UnityInput.touchCount > 0)
             {
-                ProcessTouch(Input.GetTouch(0));
+                ProcessTouch(UnityInput.GetTouch(0));
             }
 #if UNITY_EDITOR || UNITY_STANDALONE
             else
@@ -53,6 +55,11 @@ namespace RoboterLego.Input
 
         private void ProcessTouch(Touch touch)
         {
+            if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject(touch.fingerId))
+            {
+                return;
+            }
+
             var now = Time.time;
             switch (touch.phase)
             {
@@ -78,23 +85,28 @@ namespace RoboterLego.Input
 #if UNITY_EDITOR || UNITY_STANDALONE
         private void ProcessMouseForEditor()
         {
+            if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+            {
+                return;
+            }
+
             var now = Time.time;
-            if (Input.GetMouseButtonDown(0))
+            if (UnityInput.GetMouseButtonDown(0))
             {
                 activeStrokePoints.Clear();
-                AddPoint(Input.mousePosition);
-                touchEvents.Add(new TouchEvent(TouchEventType.Down, Input.mousePosition, now));
+                AddPoint(UnityInput.mousePosition);
+                touchEvents.Add(new TouchEvent(TouchEventType.Down, UnityInput.mousePosition, now));
             }
-            else if (Input.GetMouseButton(0))
+            else if (UnityInput.GetMouseButton(0))
             {
-                AddPoint(Input.mousePosition);
-                touchEvents.Add(new TouchEvent(TouchEventType.Move, Input.mousePosition, now));
+                AddPoint(UnityInput.mousePosition);
+                touchEvents.Add(new TouchEvent(TouchEventType.Move, UnityInput.mousePosition, now));
             }
-            else if (Input.GetMouseButtonUp(0))
+            else if (UnityInput.GetMouseButtonUp(0))
             {
-                AddPoint(Input.mousePosition);
-                touchEvents.Add(new TouchEvent(TouchEventType.Up, Input.mousePosition, now));
-                FinishStroke(now, Input.mousePosition);
+                AddPoint(UnityInput.mousePosition);
+                touchEvents.Add(new TouchEvent(TouchEventType.Up, UnityInput.mousePosition, now));
+                FinishStroke(now, UnityInput.mousePosition);
             }
         }
 #endif

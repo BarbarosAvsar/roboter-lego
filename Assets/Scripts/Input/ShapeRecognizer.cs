@@ -43,7 +43,7 @@ namespace RoboterLego.Input
                 return ShapeType.Unknown;
             }
 
-            int corners = CountCorners(simplified, 0.75f);
+            int corners = CountCorners(simplified, 0.75f, isClosed);
             if (corners >= 3 && corners <= 4)
             {
                 if (corners == 3)
@@ -133,8 +133,44 @@ namespace RoboterLego.Input
             return Rect.MinMaxRect(min.x, min.y, max.x, max.y);
         }
 
-        private static int CountCorners(IReadOnlyList<Vector2> points, float minAngleRadians)
+        private static int CountCorners(IReadOnlyList<Vector2> points, float minAngleRadians, bool isClosed)
         {
+            if (points.Count < 3)
+            {
+                return 0;
+            }
+
+            if (isClosed)
+            {
+                int cornerCount = 0;
+                int effectiveCount = points.Count;
+                if (Vector2.Distance(points[0], points[points.Count - 1]) <= 0.001f)
+                {
+                    effectiveCount--;
+                }
+
+                if (effectiveCount < 3)
+                {
+                    return 0;
+                }
+
+                for (int i = 0; i < effectiveCount; i++)
+                {
+                    int prevIndex = (i - 1 + effectiveCount) % effectiveCount;
+                    int nextIndex = (i + 1) % effectiveCount;
+
+                    Vector2 a = (points[prevIndex] - points[i]).normalized;
+                    Vector2 b = (points[nextIndex] - points[i]).normalized;
+                    float angle = Mathf.Acos(Mathf.Clamp(Vector2.Dot(a, b), -1f, 1f));
+                    if (angle >= minAngleRadians)
+                    {
+                        cornerCount++;
+                    }
+                }
+
+                return cornerCount;
+            }
+
             int count = 0;
             for (int i = 1; i < points.Count - 1; i++)
             {

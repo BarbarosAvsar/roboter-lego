@@ -1,0 +1,14 @@
+# ninja log v5
+49	2664	7931542769682827	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	dfb29d067ee0e711
+9	2011	7931542762607982	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	9a49dbfe52e7cb8f
+2646	2861	7931542771674770	C:/Users/user/Documents/GitHub/roboter-lego/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/1w6k1m4o/obj/arm64-v8a/libswappywrapper.so	ef7890539d7b9fa3
+1	2165	7931542764589240	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	882355ab69c48c91
+43	2083	7931542763316134	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	67533ffdc83e2ab6
+34	2217	7931542764785760	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	df9b823aaa63a0dd
+29	2220	7931542765009541	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	bd8bef2946e2dc00
+23	2411	7931542767154784	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	dcbdbd1e6df8f5e
+2017	2646	7931542769594665	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	b22f397f7cd6aa00
+15	2774	7931542770867199	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	7ec0235faec98615
+2774	2904	7931542772207889	C:/Users/user/Documents/GitHub/roboter-lego/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/1w6k1m4o/obj/arm64-v8a/libgame.so	13a64629d83547b0
+1	162	7931620657186969	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	b22f397f7cd6aa00
+163	277	7931620658219126	C:/Users/user/Documents/GitHub/roboter-lego/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/1w6k1m4o/obj/arm64-v8a/libswappywrapper.so	ef7890539d7b9fa3
